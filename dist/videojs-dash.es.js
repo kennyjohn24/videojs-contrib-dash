@@ -69096,6 +69096,76 @@ function setupAudioTracks(player, tech) {
   player.dash.mediaPlayer.on(dashjs$1.MediaPlayer.events.PLAYBACK_METADATA_LOADED, handlePlaybackMetadataLoaded.bind(null, player, tech));
 }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+
+  _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+/**
+ * Maps language code from embedded captions to a new label.
+ *
+ * @param {Object} player An instance of the videojs Player
+ * @param {function} player.mapLangToNewLabel A plugin from the videojs Player that retrieves a new label.
+ *
+ * @param {Object} trackConfig Text track configuration that comes from attributes of the embedded captions.
+ * @return {Object} trackConfigCopy A copy of trackConfig with a new label set (if it exists in our plugin).
+ */
+function textTrackWithNewLabel(player, trackConfig) {
+  var pluginForNewLabel = player.mapLangToNewLabel;
+
+  if (pluginForNewLabel) {
+    // Lowercase language code to minimize key variations and adhere to videojs styling
+    var languageCode = trackConfig.label.toLowerCase();
+    var newLabel = player.mapLangToNewLabel(languageCode);
+
+    if (newLabel) {
+      var trackConfigCopy = _extends({}, trackConfig);
+
+      trackConfigCopy.label = newLabel;
+      return trackConfigCopy;
+    }
+  }
+
+  return trackConfig;
+}
+
 function find(l, f) {
   for (var i = 0; i < l.length; i++) {
     if (f(l[i])) {
@@ -69158,7 +69228,8 @@ function attachDashTextTracksToVideojs(player, tech, tracks) {
       return null;
     }
 
-    var remoteTextTrack = player.addRemoteTextTrack(trackConfig, false);
+    var trackConfigCopy = textTrackWithNewLabel(player, trackConfig);
+    var remoteTextTrack = player.addRemoteTextTrack(trackConfigCopy, false);
     trackDictionary.push({
       textTrack: remoteTextTrack.track,
       dashTrack: dashTrack
@@ -69280,30 +69351,6 @@ function setupTextTracks(player, tech, options) {
   mediaPlayer.on(dashjs$1.MediaPlayer.events.CAN_PLAY, function () {
     mediaPlayer.off(dashjs$1.MediaPlayer.events.TEXT_TRACKS_ADDED, handleTextTracksAdded);
   });
-}
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-
-  _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
 }
 
 var Component = videojs.getComponent('Component');

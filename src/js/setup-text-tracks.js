@@ -1,6 +1,7 @@
 import dashjs from 'dashjs';
 import videojs from 'video.js';
 import window from 'global/window';
+import textTrackWithNewLabel from './util/new-text-track-label';
 
 function find(l, f) {
   for (let i = 0; i < l.length; i++) {
@@ -67,8 +68,8 @@ function attachDashTextTracksToVideojs(player, tech, tracks) {
       if (dashTrack.isTTML && !player.getChild('TTMLTextTrackDisplay')) {
         return null;
       }
-
-      const remoteTextTrack = player.addRemoteTextTrack(trackConfig, false);
+      const trackConfigCopy = textTrackWithNewLabel(player, trackConfig);
+      const remoteTextTrack = player.addRemoteTextTrack(trackConfigCopy, false);
 
       trackDictionary.push({textTrack: remoteTextTrack.track, dashTrack});
 
