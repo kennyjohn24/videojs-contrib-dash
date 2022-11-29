@@ -69610,7 +69610,7 @@
 
 	var cov_1tzbs9cpf2 = function () {
 	  var path = '/Users/kjohn/Projects/videojs-contrib-dash/src/js/setup-audio-tracks.js',
-	      hash = 'e3fac349cebc97fe3994273b8cfa471c8b251eed',
+	      hash = '42fb8a64295e95c94df2bb03f4bea5f997b2ec33',
 	      Function = function () {}.constructor,
 	      global = new Function('return this')(),
 	      gcv = '__coverage__',
@@ -69853,7 +69853,7 @@
 	          column: 35
 	        },
 	        end: {
-	          line: 94,
+	          line: 98,
 	          column: 3
 	        }
 	      },
@@ -69863,97 +69863,137 @@
 	          column: 4
 	        },
 	        end: {
-	          line: 93,
-	          column: 5
+	          line: 80,
+	          column: 74
 	        }
 	      },
 	      '25': {
 	        start: {
 	          line: 81,
-	          column: 20
+	          column: 4
 	        },
 	        end: {
-	          line: 81,
-	          column: 41
+	          line: 97,
+	          column: 5
 	        }
 	      },
 	      '26': {
 	        start: {
-	          line: 83,
-	          column: 6
+	          line: 82,
+	          column: 20
 	        },
 	        end: {
-	          line: 92,
-	          column: 7
+	          line: 82,
+	          column: 41
 	        }
 	      },
 	      '27': {
 	        start: {
-	          line: 85,
-	          column: 31
+	          line: 84,
+	          column: 6
 	        },
 	        end: {
-	          line: 85,
-	          column: 73
+	          line: 84,
+	          column: 77
 	        }
 	      },
 	      '28': {
 	        start: {
-	          line: 88,
-	          column: 8
+	          line: 86,
+	          column: 6
 	        },
 	        end: {
-	          line: 88,
-	          column: 52
+	          line: 96,
+	          column: 7
 	        }
 	      },
 	      '29': {
 	        start: {
-	          line: 91,
-	          column: 8
+	          line: 88,
+	          column: 31
 	        },
 	        end: {
-	          line: 91,
-	          column: 17
+	          line: 88,
+	          column: 73
 	        }
 	      },
 	      '30': {
 	        start: {
-	          line: 96,
-	          column: 2
+	          line: 89,
+	          column: 8
 	        },
 	        end: {
-	          line: 96,
-	          column: 74
+	          line: 89,
+	          column: 72
 	        }
 	      },
 	      '31': {
 	        start: {
-	          line: 97,
-	          column: 2
+	          line: 92,
+	          column: 8
 	        },
 	        end: {
-	          line: 99,
-	          column: 5
+	          line: 92,
+	          column: 52
 	        }
 	      },
 	      '32': {
 	        start: {
-	          line: 98,
-	          column: 4
+	          line: 95,
+	          column: 8
 	        },
 	        end: {
-	          line: 98,
-	          column: 79
+	          line: 95,
+	          column: 17
 	        }
 	      },
 	      '33': {
 	        start: {
-	          line: 108,
+	          line: 100,
 	          column: 2
 	        },
 	        end: {
-	          line: 111,
+	          line: 100,
+	          column: 74
+	        }
+	      },
+	      '34': {
+	        start: {
+	          line: 101,
+	          column: 2
+	        },
+	        end: {
+	          line: 107,
+	          column: 5
+	        }
+	      },
+	      '35': {
+	        start: {
+	          line: 103,
+	          column: 4
+	        },
+	        end: {
+	          line: 103,
+	          column: 82
+	        }
+	      },
+	      '36': {
+	        start: {
+	          line: 106,
+	          column: 4
+	        },
+	        end: {
+	          line: 106,
+	          column: 79
+	        }
+	      },
+	      '37': {
+	        start: {
+	          line: 116,
+	          column: 2
+	        },
+	        end: {
+	          line: 119,
 	          column: 4
 	        }
 	      }
@@ -69977,7 +70017,7 @@
 	            column: 52
 	          },
 	          end: {
-	            line: 100,
+	            line: 108,
 	            column: 1
 	          }
 	        },
@@ -70097,7 +70137,7 @@
 	            column: 41
 	          },
 	          end: {
-	            line: 94,
+	            line: 98,
 	            column: 3
 	          }
 	        },
@@ -70107,49 +70147,49 @@
 	        name: '(anonymous_6)',
 	        decl: {
 	          start: {
-	            line: 97,
+	            line: 101,
 	            column: 81
 	          },
 	          end: {
-	            line: 97,
+	            line: 101,
 	            column: 82
 	          }
 	        },
 	        loc: {
 	          start: {
-	            line: 97,
+	            line: 101,
 	            column: 87
 	          },
 	          end: {
-	            line: 99,
+	            line: 107,
 	            column: 3
 	          }
 	        },
-	        line: 97
+	        line: 101
 	      },
 	      '7': {
 	        name: 'setupAudioTracks',
 	        decl: {
 	          start: {
-	            line: 106,
+	            line: 114,
 	            column: 24
 	          },
 	          end: {
-	            line: 106,
+	            line: 114,
 	            column: 40
 	          }
 	        },
 	        loc: {
 	          start: {
-	            line: 106,
+	            line: 114,
 	            column: 55
 	          },
 	          end: {
-	            line: 112,
+	            line: 120,
 	            column: 1
 	          }
 	        },
-	        line: 106
+	        line: 114
 	      }
 	    },
 	    branchMap: {
@@ -70486,35 +70526,35 @@
 	      '10': {
 	        loc: {
 	          start: {
-	            line: 83,
+	            line: 86,
 	            column: 6
 	          },
 	          end: {
-	            line: 92,
+	            line: 96,
 	            column: 7
 	          }
 	        },
 	        type: 'if',
 	        locations: [{
 	          start: {
-	            line: 83,
+	            line: 86,
 	            column: 6
 	          },
 	          end: {
-	            line: 92,
+	            line: 96,
 	            column: 7
 	          }
 	        }, {
 	          start: {
-	            line: 83,
+	            line: 86,
 	            column: 6
 	          },
 	          end: {
-	            line: 92,
+	            line: 96,
 	            column: 7
 	          }
 	        }],
-	        line: 83
+	        line: 86
 	      }
 	    },
 	    s: {
@@ -70551,7 +70591,11 @@
 	      '30': 0,
 	      '31': 0,
 	      '32': 0,
-	      '33': 0
+	      '33': 0,
+	      '34': 0,
+	      '35': 0,
+	      '36': 0,
+	      '37': 0
 	    },
 	    f: {
 	      '0': 0,
@@ -70694,17 +70738,23 @@
 	  var audioTracksChangeHandler = function audioTracksChangeHandler() {
 	    cov_1tzbs9cpf2.f[5]++;
 	    cov_1tzbs9cpf2.s[24]++;
+	    console.log('[inside audioTracksChangeHandler]:', videojsAudioTracks);
+	    cov_1tzbs9cpf2.s[25]++;
 
 	    for (var i = 0; i < videojsAudioTracks.length; i++) {
-	      var track = (cov_1tzbs9cpf2.s[25]++, videojsAudioTracks[i]);
-	      cov_1tzbs9cpf2.s[26]++;
+	      var track = (cov_1tzbs9cpf2.s[26]++, videojsAudioTracks[i]);
+	      cov_1tzbs9cpf2.s[27]++;
+	      console.log("track.id: " + track.id + " | track.enabled: " + track.enabled);
+	      cov_1tzbs9cpf2.s[28]++;
 
 	      if (track.enabled) {
 	        cov_1tzbs9cpf2.b[10][0]++;
-	        var dashAudioTrack = (cov_1tzbs9cpf2.s[27]++, findDashAudioTrack(dashAudioTracks, track));
-	        cov_1tzbs9cpf2.s[28]++;
+	        var dashAudioTrack = (cov_1tzbs9cpf2.s[29]++, findDashAudioTrack(dashAudioTracks, track));
+	        cov_1tzbs9cpf2.s[30]++;
+	        console.log('[dashAudioTrack in contrib-dash]', dashAudioTrack);
+	        cov_1tzbs9cpf2.s[31]++;
 	        mediaPlayer.setCurrentTrack(dashAudioTrack);
-	        cov_1tzbs9cpf2.s[29]++;
+	        cov_1tzbs9cpf2.s[32]++;
 	        continue;
 	      } else {
 	        cov_1tzbs9cpf2.b[10][1]++;
@@ -70712,19 +70762,21 @@
 	    }
 	  };
 
-	  cov_1tzbs9cpf2.s[30]++;
+	  cov_1tzbs9cpf2.s[33]++;
 	  videojsAudioTracks.addEventListener('change', audioTracksChangeHandler);
-	  cov_1tzbs9cpf2.s[31]++;
+	  cov_1tzbs9cpf2.s[34]++;
 	  player.dash.mediaPlayer.on(dashjs$2.MediaPlayer.events.STREAM_TEARDOWN_COMPLETE, function () {
 	    cov_1tzbs9cpf2.f[6]++;
-	    cov_1tzbs9cpf2.s[32]++;
+	    cov_1tzbs9cpf2.s[35]++;
+	    console.log('does change event handler get removed when chromecast stops!!!');
+	    cov_1tzbs9cpf2.s[36]++;
 	    videojsAudioTracks.removeEventListener('change', audioTracksChangeHandler);
 	  });
 	}
 
 	function setupAudioTracks(player, tech) {
 	  cov_1tzbs9cpf2.f[7]++;
-	  cov_1tzbs9cpf2.s[33]++;
+	  cov_1tzbs9cpf2.s[37]++;
 	  player.dash.mediaPlayer.on(dashjs$2.MediaPlayer.events.PLAYBACK_METADATA_LOADED, handlePlaybackMetadataLoaded.bind(null, player, tech));
 	}
 

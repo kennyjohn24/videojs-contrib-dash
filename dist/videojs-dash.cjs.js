@@ -69070,12 +69070,16 @@ function handlePlaybackMetadataLoaded(player, tech) {
   });
 
   var audioTracksChangeHandler = function audioTracksChangeHandler() {
+    console.log('[inside audioTracksChangeHandler]:', videojsAudioTracks);
+
     for (var i = 0; i < videojsAudioTracks.length; i++) {
       var track = videojsAudioTracks[i];
+      console.log("track.id: " + track.id + " | track.enabled: " + track.enabled);
 
       if (track.enabled) {
         // Find the audio track we just selected by the id
-        var dashAudioTrack = findDashAudioTrack(dashAudioTracks, track); // Set is as the current track
+        var dashAudioTrack = findDashAudioTrack(dashAudioTracks, track);
+        console.log('[dashAudioTrack in contrib-dash]', dashAudioTrack); // Set is as the current track
 
         mediaPlayer.setCurrentTrack(dashAudioTrack); // Stop looping
 
@@ -69086,6 +69090,10 @@ function handlePlaybackMetadataLoaded(player, tech) {
 
   videojsAudioTracks.addEventListener('change', audioTracksChangeHandler);
   player.dash.mediaPlayer.on(dashjs$1.MediaPlayer.events.STREAM_TEARDOWN_COMPLETE, function () {
+    // can't remove because otherwise it'll affect playlist behavior?
+    console.log('does change event handler get removed when chromecast stops!!!'); // doesn't make sense though because it works when DA is not active (then casted)
+    // and audioTracksChangeHandler is still triggered when this.descriptiveTrack.enabled = true;
+
     videojsAudioTracks.removeEventListener('change', audioTracksChangeHandler);
   });
 }
