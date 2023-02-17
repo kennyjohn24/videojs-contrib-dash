@@ -63298,9 +63298,15 @@
 	              cue.align = currentItem.styles.align;
 	            }
 
-	            if (currentItem.styles.line !== undefined && 'line' in cue) {
-	              cue.line = currentItem.styles.line;
-	            }
+              if (currentItem.styles.line !== undefined && 'line' in cue) {
+                try {
+                  cue.line = currentItem.styles.line;
+                } catch(e) {
+                  // Converting the parsed string to a number could make the captions appear outsde
+                  // the video. Let browser determine where the captions should appear on the video.
+                  cue.line = 'auto';
+                }
+              }
 
 	            if (currentItem.styles.position !== undefined && 'position' in cue) {
 	              cue.position = currentItem.styles.position;
