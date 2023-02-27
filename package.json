@@ -54,7 +54,7 @@
     "test/"
   ],
   "dependencies": {
-    "dashjs": "^4.2.0",
+    "dashjs": "github:kennyjohn24/dash.js#fix/4.6.0-return-unnormalized-languages",
     "global": "^4.3.2",
     "video.js": "^5.18.0 || ^6 || ^7"
   },

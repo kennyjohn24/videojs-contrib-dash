@@ -81,9 +81,9 @@ function attachDashTextTracksToVideojs(player, tech, tracks) {
 
       return remoteTextTrack;
     })
-    .filter(el => el !== null)
+    .filter(el => el !== null);
 
-  ;
+  console.log('[trackDictionary]:', trackDictionary);
 
   /*
    * Scan `videojs.textTracks()` to find one that is showing. Set the dash text track.
