@@ -11,8 +11,9 @@ function textTrackWithNewLabel(player, trackConfig) {
   const pluginForNewLabel = player.mapLangToNewLabel;
   if (pluginForNewLabel) {
     // Lowercase language code to minimize key variations and adhere to videojs styling
-    const languageCode = trackConfig.label.toLowerCase();
-    const newLabel = player.mapLangToNewLabel(languageCode);
+    const languageCode = trackConfig.label || '';
+    const newLabel = player.mapLangToNewLabel(languageCode.toLowerCase());
+
     if (newLabel) {
       const trackConfigCopy = Object.assign({}, trackConfig);
       trackConfigCopy.label = newLabel;
