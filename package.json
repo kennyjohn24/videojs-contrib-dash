@@ -54,7 +54,7 @@
     "test/"
   ],
   "dependencies": {
-    "dashjs": "github:kennyjohn24/dash.js#master",
+    "dashjs": "^4.6.0",
     "global": "^4.3.2",
     "video.js": "^5.18.0 || ^6 || ^7"
   },

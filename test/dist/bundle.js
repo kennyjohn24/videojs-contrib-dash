@@ -14692,11 +14692,6 @@
 	      var lang = bcp_47_normalize__WEBPACK_IMPORTED_MODULE_2___default()(str);
 
 	      if (lang !== undefined) {
-	        // BCP47 normalization can not be matched
-	        if (lang === '') {
-	          return String(str);
-	        }
-
 	        return lang;
 	      }
 
@@ -64101,7 +64096,7 @@
 	  \*******************************************************/
 	/***/ ((__unused_webpack_module, exports) => {
 
-	/*! codem-isoboxer v0.3.8 https://github.com/madebyhiro/codem-isoboxer/blob/master/LICENSE.txt */
+	/*! codem-isoboxer v0.3.6 https://github.com/madebyhiro/codem-isoboxer/blob/master/LICENSE.txt */
 	var ISOBoxer = {};
 
 	ISOBoxer.parseBuffer = function(arrayBuffer) {
@@ -64595,8 +64590,7 @@
 
 	  switch(this.size) {
 	  case 0:
-	    // Size zero indicates last box in the file. Consume remaining buffer.
-	    this._raw = new DataView(this._raw.buffer, this._offset);
+	    this._raw = new DataView(this._raw.buffer, this._offset, (this._raw.byteLength - this._cursor.offset + 8));
 	    break;
 	  case 1:
 	    if (this._offset + this.size > this._raw.buffer.byteLength) {
@@ -64870,14 +64864,8 @@
 	  }
 	};
 
-	// ISO/IEC 14496-15:2014 - avc1/2/3/4, hev1, hvc1, encv
-	ISOBox.prototype._boxProcessors['avc1'] =
-	ISOBox.prototype._boxProcessors['avc2'] =
-	ISOBox.prototype._boxProcessors['avc3'] =
-	ISOBox.prototype._boxProcessors['avc4'] =
-	ISOBox.prototype._boxProcessors['hvc1'] =
-	ISOBox.prototype._boxProcessors['hev1'] =
-	ISOBox.prototype._boxProcessors['encv'] = function() {
+	// ISO/IEC 14496-15:2014 - avc1 box
+	ISOBox.prototype._boxProcessors['avc1'] = ISOBox.prototype._boxProcessors['encv'] = function() {
 	  // SampleEntry fields
 	  this._procFieldArray('reserved1', 6,    'uint', 8);
 	  this._procField('data_reference_index', 'uint', 16);
@@ -64894,18 +64882,8 @@
 	  this._procFieldArray('compressorname', 32,'uint',    8);
 	  this._procField('depth',                'uint',     16);
 	  this._procField('pre_defined3',         'int',      16);
-	  // Codec-specific fields
+	  // AVCSampleEntry fields
 	  this._procField('config', 'data', -1);
-	};
-
-	// ISO/IEC 14496-12:2012 - 8.6.1.3 Composition Time To Sample Box
-	ISOBox.prototype._boxProcessors['ctts'] = function() {
-	  this._procFullBox();
-	  this._procField('entry_count', 'uint', 32);
-	  this._procEntries('entries', this.entry_count, function(entry) {
-	    this._procEntryField(entry, 'sample_count', 'uint', 32);
-	    this._procEntryField(entry, 'sample_offset', (this.version === 1) ? 'int' : 'uint', 32);
-	  });
 	};
 
 	// ISO/IEC 14496-12:2012 - 8.7.2 Data Reference Box
@@ -65060,15 +65038,6 @@
 	  this._procField('cue_text', 'utf8');
 	};
 
-	// ISO/IEC 14496-12:2012 - 8.16.5 Producer Reference Time
-	ISOBox.prototype._boxProcessors['prft'] = function() {
-	  this._procFullBox();
-	  this._procField('reference_track_ID', 'uint', 32);
-	  this._procField('ntp_timestamp_sec', 'uint', 32);
-	  this._procField('ntp_timestamp_frac', 'uint', 32);
-	  this._procField('media_time', 'uint', (this.version == 1) ? 64 : 32);
-	};
-
 	//ISO/IEC 23001-7:2011 - 8.1 Protection System Specific Header Box
 	ISOBox.prototype._boxProcessors['pssh'] = function() {
 	  this._procFullBox();
@@ -65155,16 +65124,6 @@
 	  this._procFullBox();
 	  this._procField('entry_count', 'uint', 32);
 	  this._procSubBoxes('entries', this.entry_count);
-	};
-
-	// ISO/IEC 14496-12:2012 - 8.6.1.2 Decoding Time To Sample Box
-	ISOBox.prototype._boxProcessors['stts'] = function() {
-	  this._procFullBox();
-	  this._procField('entry_count', 'uint', 32);
-	  this._procEntries('entries', this.entry_count, function(entry) {
-	    this._procEntryField(entry, 'sample_count', 'uint', 32);
-	    this._procEntryField(entry, 'sample_delta', 'uint', 32);
-	  });
 	};
 
 	// ISO/IEC 14496-12:2015 - 8.7.7 Sub-Sample Information Box
